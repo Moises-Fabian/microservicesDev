@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Servicios.api.Libreria.Core.Entities
 {
-    /*Al hacer esta herencia automaticamente se implemente las propiedades de id y
-     * detetime(creacion del documento)*/
-    [BsonCollection("Autor")]/*match para compatibilizar la bd*/
+    [BsonCollection("Autor")]
     public class AutorEntity:Document
     {
         [BsonElement("nombre")]
