@@ -12,6 +12,7 @@ export class SeguridadService {
       nombre: usr.nombre,
       apellidos: usr.apellidos,
       username: usr.username,
+      password: ''
     };
   }
 
@@ -22,6 +23,7 @@ export class SeguridadService {
       nombre: '',
       apellidos: '',
       username: '',
+      password: ''
     };
   }
 
