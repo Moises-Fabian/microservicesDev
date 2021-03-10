@@ -6,4 +6,8 @@ export class BookService{
 
   ];
 
+  obtenerLibros(){
+    return this.booksLista.slice();
+  }
+
 }

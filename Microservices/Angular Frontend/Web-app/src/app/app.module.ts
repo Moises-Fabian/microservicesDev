@@ -17,6 +17,7 @@ import { BarraComponent } from './navegacion/barra/barra.component';
 import { MenuListaComponent } from './navegacion/menu-lista/menu-lista.component';
 import { SeguridadService } from './seguridad/seguridad.service';
 import { BooksComponent } from './books/books.component';
+import { BookService } from './books/book.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { BooksComponent } from './books/books.component';
     MaterialModule,
     FlexLayoutModule
   ],
-  providers: [LibrosServices, SeguridadService],
+  providers: [LibrosServices, SeguridadService, BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
