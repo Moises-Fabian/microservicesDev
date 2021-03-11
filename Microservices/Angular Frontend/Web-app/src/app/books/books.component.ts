@@ -3,6 +3,7 @@ import { BookService } from './book.service';
 import {Books} from './book.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-books',
@@ -14,6 +15,7 @@ export class BooksComponent implements OnInit, AfterViewInit {
   desplegarColumnas = ["titulo", "descripcion", "autor", "precio"];
   dataSource = new MatTableDataSource<Books>();
   @ViewChild(MatSort) ordenamiento!: MatSort;
+  @ViewChild(MatPaginator) paginacion;
 
   constructor(private bookService: BookService) { }
   hacerFiltro(filtro : string){
@@ -26,6 +28,7 @@ export class BooksComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(){
     this.dataSource.sort = this.ordenamiento;
+    this.dataSource.paginator = this.paginacion;
 
   }
 
