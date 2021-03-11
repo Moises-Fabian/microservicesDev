@@ -43,6 +43,12 @@
           </mat-select>
         </mat-form-field>
 
+        <mat-form-field style="width: 100%;">
+          <input matInput placeholder="Seleccione fecha publicación" [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker></mat-datepicker>
+        </mat-form-field>
+
         </form>
       </mat-card>
   </section>

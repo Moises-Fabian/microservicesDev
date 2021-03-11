@@ -19,6 +19,7 @@ import { SeguridadService } from './seguridad/seguridad.service';
 import { BooksComponent } from './books/books.component';
 import { BookService } from './books/book.service';
 import { BookNuevoComponent } from './books/book-nuevo.component';
+import {MAT_DATE_LOCALE} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { BookNuevoComponent } from './books/book-nuevo.component';
     MaterialModule,
     FlexLayoutModule
   ],
-  providers: [LibrosServices, SeguridadService, BookService],
+  providers: [LibrosServices, SeguridadService, BookService,{provide: MAT_DATE_LOCALE, useValue: 'es-ES'}],
   bootstrap: [AppComponent],
   entryComponents: [BookNuevoComponent]
 })
