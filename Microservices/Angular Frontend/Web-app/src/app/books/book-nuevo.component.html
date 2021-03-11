@@ -55,9 +55,10 @@
               (selectionChange)="selected($event)"
               name="autor"
             >
-              <mat-option value="1"> Pablo neruda </mat-option>
-              <mat-option value="2"> Gabriela mistral </mat-option>
-              <mat-option value="3"> Luis perez </mat-option>
+              <mat-option *ngFor="let autr of autores" value="autr.autorId">
+                {{autr.nombre +' '+ autr.apellido}}
+              </mat-option>
+
             </mat-select>
           </mat-form-field>
 

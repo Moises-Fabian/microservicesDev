@@ -1,9 +1,11 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatOption } from '@angular/material/core';
 import { MatDatepicker } from '@angular/material/datepicker';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
+import { Autor } from '../autores/autor.model';
+import { AutoresService } from '../autores/autores.service';
 import { BookService } from './book.service';
 
 @Component({
@@ -12,13 +14,19 @@ import { BookService } from './book.service';
 
 })
 
-export class BookNuevoComponent{
+export class BookNuevoComponent implements OnInit{
   selectAutor!: string;
   selectAutorTexto!: string;
   fechaPublicacion!: string;
   @ViewChild(MatDatepicker) picker!: MatDatepicker<Date>;
 
-  constructor(private booksService: BookService, private dialogref: MatDialog){}
+  autores: Autor[] = [];
+
+  constructor(private booksService: BookService, private dialogref: MatDialog, private autoresService: AutoresService){}
+
+  ngOnInit(){
+    this.autores = this.autoresService.obtenerAutores();
+  }
 
   selected(event: MatSelectChange){
     this.selectAutorTexto = (event.source.selected as MatOption).viewValue;
