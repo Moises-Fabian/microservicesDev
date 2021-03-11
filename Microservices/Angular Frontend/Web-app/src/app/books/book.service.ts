@@ -1,4 +1,5 @@
 import {Books} from './book.model';
+import {Subject} from 'rxjs';
 
 export class BookService{
 
@@ -11,8 +12,17 @@ export class BookService{
 
   ];
 
+  bookSubjet = new Subject<Books>();
+
   obtenerLibros(){
     return this.booksLista.slice();
+  }
+
+  guardarLibro(book: Books){
+
+    this.booksLista.push(book);
+    this.bookSubjet.next(book);
+
   }
 
 }

@@ -1,59 +1,86 @@
-<h1 mat-dialog-title>Agregar nuevo libro</h1>
-<mat-dialog-content>
-  <section fxLayoutAlign="center" style="margin-top :10px; margin-bottom: 10px;">
+<form
+ #f="ngForm"
+ (ngSubmit)="guardarLibro(f)">
+  <h1 mat-dialog-title>Agregar nuevo libro</h1>
+  <mat-dialog-content>
+    <section
+      fxLayoutAlign="center"
+      style="margin-top: 10px; margin-bottom: 10px"
+    >
       <mat-card fxFlex="100%">
-        <form
-        fxLayout="column"
-        fxLayoutAlign="center center"
-        fxLayoutGap="10px"
-        #f="ngForm"
-        (ngSubmit)="guardarLibro(f)"
-        >
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+          <mat-form-field style="width: 100%">
+            <mat-label>Ingrese titulo</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="ejem. libro python"
+              name="titulo"
+              ngModel
+              required
+            />
+            <mat-error>Debe ingresar un titulo del libro</mat-error>
+          </mat-form-field>
 
-        <mat-form-field style="width: 100%;">
-          <mat-label>Ingrese titulo</mat-label>
-          <input type="text" matInput placeholder="ejem. libro python" name="titulo" ngModel required>
-          <mat-error>Debe ingresar un titulo del libro</mat-error>
-        </mat-form-field>
+          <mat-form-field style="width: 100%">
+            <mat-label>Ingrese Descripcion</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="ejem. libro escrito en 1985"
+              name="descripcion"
+              ngModel
+              required
+            />
+            <mat-error>Debe ingresar una Descripcion</mat-error>
+          </mat-form-field>
 
-        <mat-form-field style="width: 100%;">
-          <mat-label>Ingrese Descripcion</mat-label>
-          <input type="text" matInput placeholder="ejem. libro escrito en 1985" name="descripcion" ngModel required>
-          <mat-error>Debe ingresar una Descripcion</mat-error>
-        </mat-form-field>
+          <mat-form-field style="width: 100%">
+            <mat-label>Ingrese Precio</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="ejem. 10900"
+              name="precio"
+              ngModel
+              required
+            />
+            <mat-error>Debe ingresar un precio</mat-error>
+          </mat-form-field>
 
-        <mat-form-field style="width: 100%;">
-          <mat-label>Ingrese Precio</mat-label>
-          <input type="text" matInput placeholder="ejem. 10900" name="precio" ngModel required>
-          <mat-error>Debe ingresar un precio</mat-error>
-        </mat-form-field>
+          <mat-form-field style="width: 100%">
+            <mat-label>Seleccione autor</mat-label>
+            <mat-select
+              [(ngModel)]="selectAutor"
+              (selectionChange)="selected($event)"
+              name="autor"
+            >
+              <mat-option value="1"> Pablo neruda </mat-option>
+              <mat-option value="2"> Gabriela mistral </mat-option>
+              <mat-option value="3"> Luis perez </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-        <mat-form-field style="width: 100%;">
-          <mat-label>Seleccione autor</mat-label>
-          <mat-select [(ngModel)]="selectAutor" name="autor">
-            <mat-option value="1">
-               Pablo neruda
-            </mat-option>
-            <mat-option value="2">
-              Gabriela mistral
-           </mat-option>
-           <mat-option value="3">
-              Luis perez
-         </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field style="width: 100%;">
-          <input matInput placeholder="Seleccione fecha publicación" [matDatepicker]="picker">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker></mat-datepicker>
-        </mat-form-field>
-
-        </form>
+          <mat-form-field style="width: 100%">
+            <input
+              matInput
+              placeholder="Seleccione fecha publicación"
+              [matDatepicker]="picker"
+              name="fechaPublicacion"
+              [(ngModel)]="fechaPublicacion"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker></mat-datepicker>
+          </mat-form-field>
+        </div>
       </mat-card>
-  </section>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button matt-button [mat-dialog-close]="true">Cerrar</button>
-  <button matt-button >Guardar</button>
-</mat-dialog-actions>
+    </section>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button matt-button [mat-dialog-close]="true">Cerrar</button>
+    <button matt-button type="submit">Guardar</button>
+  </mat-dialog-actions>
+</form>
