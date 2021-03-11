@@ -32,6 +32,6 @@
 <mat-paginator [pageSize]="2" [pageSizeOptions]="[1,5,10,20]">
 </mat-paginator>
 
-<button mat-fab id="boton-agregar" color="warn">
+<button mat-fab id="boton-agregar" color="warn" (click)="abrirDialog()">
   <mat-icon>add</mat-icon>
 </button>
