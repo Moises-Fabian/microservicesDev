@@ -25,7 +25,7 @@ export class BookNuevoComponent implements OnInit{
   constructor(private booksService: BookService, private dialogref: MatDialog, private autoresService: AutoresService){}
 
   ngOnInit(){
-    this.autores = this.autoresService.obtenerAutores();
+    //this.autores = this.autoresService.obtenerAutores();
   }
 
   selected(event: MatSelectChange){
