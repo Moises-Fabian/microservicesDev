@@ -55,7 +55,7 @@
               (selectionChange)="selected($event)"
               name="autor"
             >
-              <mat-option *ngFor="let autr of autores" value="autr.autorId">
+              <mat-option *ngFor="let autr of autores" [value]="autr.id">
                 {{autr.nombre +' '+ autr.apellido}}
               </mat-option>
 

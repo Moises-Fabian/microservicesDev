@@ -13,7 +13,7 @@ export class BookService{
 
   private booksLista: Books[] =[];
 
-  bookSubjet = new Subject<Books>();
+  bookSubjet = new Subject();
 
   bookPagination!: paginationBooks;
   bookPaginationSubject = new Subject<paginationBooks>();
@@ -41,10 +41,14 @@ export class BookService{
   }
 
   guardarLibro(book: Books){
+    this.http.post(this.baseUrl + 'api/libro', book)
+      .subscribe( (response) => {
+        this.bookSubjet.next();
+      });
+  }
 
-    this.booksLista.push(book);
-    this.bookSubjet.next(book);
-
+  guardarLibroListener(){
+    return this.bookSubjet.asObservable();
   }
 
 }
