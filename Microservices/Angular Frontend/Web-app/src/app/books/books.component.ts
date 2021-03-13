@@ -21,6 +21,7 @@ import { paginationBooks } from './pagination-books.model';
   styleUrls: ['./books.component.css'],
 })
 export class BooksComponent implements OnInit, AfterViewInit, OnDestroy {
+  timeout: any = null;
   bookData: Books[] = [];
   desplegarColumnas = ['titulo', 'descripcion', 'autor', 'precio'];
   dataSource = new MatTableDataSource<Books>();
@@ -35,55 +36,99 @@ export class BooksComponent implements OnInit, AfterViewInit, OnDestroy {
   paginaActual = 1;
   sort = 'titulo';
   sortDirection = 'asc';
-  filterValue = null;
+  filterValue = null as any;
 
   constructor(private bookService: BookService, private dialog: MatDialog) {}
 
-  eventoPaginador(event: PageEvent){
+  eventoPaginador(event: PageEvent): void {
     this.librosporPagina = event.pageSize;
     this.paginaActual = event.pageIndex + 1;
-    this.bookService.obtenerLibros(this.librosporPagina, this.paginaActual, this.sort, this.sortDirection, this.filterValue);
+    this.bookService.obtenerLibros(
+      this.librosporPagina,
+      this.paginaActual,
+      this.sort,
+      this.sortDirection,
+      this.filterValue
+    );
   }
 
-  ordenarColumna(event){
+  ordenarColumna(event): void {
     this.sort = event.active;
     this.sortDirection = event.direction;
-    this.bookService.obtenerLibros(this.librosporPagina, this.paginaActual, this.sort, this.sortDirection, this.filterValue);
-
+    this.bookService.obtenerLibros(
+      this.librosporPagina,
+      this.paginaActual,
+      this.sort,
+      this.sortDirection,
+      this.filterValue
+    );
   }
 
 
-  hacerFiltro(filtro: string) {
-    this.dataSource.filter = filtro;
+
+  hacerFiltro(event: any): void {
+    clearTimeout(this.timeout);
+
+    const $this = this;
+
+    this.timeout = setTimeout( () => {
+      if (event.keyCode != 13) {
+        const filterValueLocal = {
+          propiedad: 'titulo',
+          valor: event.target.value,
+        };
+
+        $this.filterValue = filterValueLocal;
+
+        $this.bookService.obtenerLibros(
+          $this.librosporPagina,
+          $this.paginaActual,
+          $this.sort,
+          $this.sortDirection,
+          filterValueLocal
+        );
+      }
+    }, 1000);
   }
 
-  abrirDialog() {
+  abrirDialog(): void {
     const dialogRef = this.dialog.open(BookNuevoComponent, {
       width: '550px',
     });
 
-    dialogRef.afterClosed()
-        .subscribe( () => {
-          this.bookService.obtenerLibros(this.librosporPagina, this.paginaActual, this.sort, this.sortDirection, this.filterValue);
-        });
+    dialogRef.afterClosed().subscribe(() => {
+      this.bookService.obtenerLibros(
+        this.librosporPagina,
+        this.paginaActual,
+        this.sort,
+        this.sortDirection,
+        this.filterValue
+      );
+    });
   }
 
   ngOnInit(): void {
-    this.bookService.obtenerLibros(this.librosporPagina, this.paginaActual, this.sort, this.sortDirection, this.filterValue);
+    this.bookService.obtenerLibros(
+      this.librosporPagina,
+      this.paginaActual,
+      this.sort,
+      this.sortDirection,
+      this.filterValue
+    );
     this.bookService
-                .obtenerActualListener()
-                .subscribe( (pagination: paginationBooks) => {
-                  this.dataSource = new MatTableDataSource<Books>(pagination.data);
-                  this.totalLibros = pagination.totalRows;
-                });
+      .obtenerActualListener()
+      .subscribe((pagination: paginationBooks) => {
+        this.dataSource = new MatTableDataSource<Books>(pagination.data);
+        this.totalLibros = pagination.totalRows;
+      });
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.dataSource.sort = this.ordenamiento;
     this.dataSource.paginator = this.paginacion;
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.bookSubscription.unsubscribe();
   }
 }
