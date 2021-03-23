@@ -30,3 +30,4 @@ C:\MicroserviceMoises\Microservices\Servicios.api.Libreria\obj\Debug\net5.0\Serv
 C:\MicroserviceMoises\Microservices\Servicios.api.Libreria\obj\Debug\net5.0\ref\Servicios.api.Libreria.dll
 C:\MicroserviceMoises\Microservices\Servicios.api.Libreria\obj\Debug\net5.0\Servicios.api.Libreria.pdb
 C:\MicroserviceMoises\Microservices\Servicios.api.Libreria\obj\Debug\net5.0\Servicios.api.Libreria.genruntimeconfig.cache
+C:\MicroserviceMoises\Microservices\Servicios.api.Libreria\obj\Debug\net5.0\Servicios.api.Libreria.csprojAssemblyReference.cache
