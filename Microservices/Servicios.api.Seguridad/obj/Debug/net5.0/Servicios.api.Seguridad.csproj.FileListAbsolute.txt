@@ -59,4 +59,6 @@ C:\MicroserviceMoises\Microservices\Servicios.api.Seguridad\bin\Debug\net5.0\Med
 C:\MicroserviceMoises\Microservices\Servicios.api.Seguridad\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\MicroserviceMoises\Microservices\Servicios.api.Seguridad\bin\Debug\net5.0\AutoMapper.dll
 C:\MicroserviceMoises\Microservices\Servicios.api.Seguridad\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-C:\MicroserviceMoises\Microservices\Servicios.api.Seguridad\obj\Debug\net5.0\Servicios.api.Seguridad.csprojAssemblyReference.cache
+C:\MicroserviceMoises\Microservices\Servicios.api.Seguridad\bin\Debug\net5.0\FluentValidation.dll
+C:\MicroserviceMoises\Microservices\Servicios.api.Seguridad\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+C:\MicroserviceMoises\Microservices\Servicios.api.Seguridad\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll

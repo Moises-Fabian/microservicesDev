@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "tqqojKUqSxnFKKC7Xv/xtyrP/QTeSc4Eb9N+8GVGaIY3jm6m0queQvcZ0OabAWAJqohJ6oEDB7AJf/ScqMg5fQ==",
+  "dgSpecHash": "h3+CueSjz0n8SeJuse+HlZ3wPY0Q3drPjbYHhmRWwFahwx0ATf+oERfYFhFhZRF1U1gE6NCyhYwxSojkWatwrQ==",
   "success": true,
   "projectFilePath": "C:\\MicroserviceMoises\\Microservices\\Servicios.api.Seguridad\\Servicios.api.Seguridad.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mlago\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\mlago\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
+    "C:\\Users\\mlago\\.nuget\\packages\\fluentvalidation\\9.5.3\\fluentvalidation.9.5.3.nupkg.sha512",
+    "C:\\Users\\mlago\\.nuget\\packages\\fluentvalidation.aspnetcore\\9.5.3\\fluentvalidation.aspnetcore.9.5.3.nupkg.sha512",
+    "C:\\Users\\mlago\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\9.5.3\\fluentvalidation.dependencyinjectionextensions.9.5.3.nupkg.sha512",
     "C:\\Users\\mlago\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\mlago\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
     "C:\\Users\\mlago\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.0\\microsoft.aspnetcore.authentication.jwtbearer.5.0.0.nupkg.sha512",
