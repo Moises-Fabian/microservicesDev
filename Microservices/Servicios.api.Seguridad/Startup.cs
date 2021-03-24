@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Servicios.api.Seguridad.Core.Application;
 using Servicios.api.Seguridad.Core.Entities;
+using Servicios.api.Seguridad.Core.Jwtlogic;
 using Servicios.api.Seguridad.Core.Persistence;
 using System;
 using System.Collections.Generic;
@@ -49,6 +50,8 @@ namespace Servicios.api.Seguridad
             services.AddMediatR(typeof(Register.UsuarioRegisterCommand).Assembly);
 
             services.AddAutoMapper(typeof(Register.UsuarioRegisterHundler));
+
+            services.AddScoped<IJwtGenerator, JwtGenerator>();
 
             services.AddControllers().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<Register>());
 

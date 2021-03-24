@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Servicios.api.Seguridad.Core.Jwtlogic
 {
-    interface IJwtGenerator
+    public interface IJwtGenerator
     {
         string createToken(Usuario usuario);
     }

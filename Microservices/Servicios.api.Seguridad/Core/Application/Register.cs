@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Servicios.api.Seguridad.Core.DTO;
 using Servicios.api.Seguridad.Core.Entities;
+using Servicios.api.Seguridad.Core.Jwtlogic;
 using Servicios.api.Seguridad.Core.Persistence;
 using System;
 using System.Collections.Generic;
@@ -43,12 +44,14 @@ namespace Servicios.api.Seguridad.Core.Application
             private readonly SeguridadContexto _context;
             private readonly UserManager<Usuario> _userManager;
             private readonly IMapper _mapper;
+            private readonly IJwtGenerator _jwtGenerator;
 
-            public UsuarioRegisterHundler(SeguridadContexto context, UserManager<Usuario> userManager, IMapper mapper)
+            public UsuarioRegisterHundler(SeguridadContexto context, UserManager<Usuario> userManager, IMapper mapper, IJwtGenerator jwtGenerator)
             {
                 _context = context;
                 _userManager = userManager;
                 _mapper = mapper;
+                _jwtGenerator = jwtGenerator;
             }
             public async Task<UsuarioDTO> Handle(UsuarioRegisterCommand request, CancellationToken cancellationToken)
             {
@@ -76,6 +79,7 @@ namespace Servicios.api.Seguridad.Core.Application
                 if (resultado.Succeeded)
                 {
                     var usuarioDTO = _mapper.Map<Usuario, UsuarioDTO>(usuario);
+                    usuarioDTO.Token = _jwtGenerator.createToken(usuario);
                     return usuarioDTO;
                 }
 
