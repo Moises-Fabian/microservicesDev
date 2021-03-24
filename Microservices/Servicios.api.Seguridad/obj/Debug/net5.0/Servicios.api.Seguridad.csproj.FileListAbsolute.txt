@@ -57,3 +57,6 @@ C:\MicroserviceMoises\Microservices\Servicios.api.Seguridad\bin\Debug\net5.0\Mic
 C:\MicroserviceMoises\Microservices\Servicios.api.Seguridad\bin\Debug\net5.0\Microsoft.Bcl.HashCode.dll
 C:\MicroserviceMoises\Microservices\Servicios.api.Seguridad\bin\Debug\net5.0\MediatR.dll
 C:\MicroserviceMoises\Microservices\Servicios.api.Seguridad\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\MicroserviceMoises\Microservices\Servicios.api.Seguridad\bin\Debug\net5.0\AutoMapper.dll
+C:\MicroserviceMoises\Microservices\Servicios.api.Seguridad\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\MicroserviceMoises\Microservices\Servicios.api.Seguridad\obj\Debug\net5.0\Servicios.api.Seguridad.csprojAssemblyReference.cache
