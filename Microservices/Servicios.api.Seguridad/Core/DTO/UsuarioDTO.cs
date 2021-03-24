@@ -7,9 +7,9 @@ namespace Servicios.api.Seguridad.Core.DTO
 {
     public class UsuarioDTO
     {
-        public int Id { get; set; }
-        public int UserName { get; set; }
-        public int Nombre { get; set; }
-        public int Apellido { get; set; }
+        public string Id { get; set; }
+        public string UserName { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
     }
 }

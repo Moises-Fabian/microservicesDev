@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Servicios.api.Seguridad.Core.Application;
 using Servicios.api.Seguridad.Core.Entities;
 using Servicios.api.Seguridad.Core.Persistence;
 using System;
@@ -42,6 +44,10 @@ namespace Servicios.api.Seguridad
             identityBuilder.AddEntityFrameworkStores<SeguridadContexto>();
             identityBuilder.AddSignInManager<SignInManager<Usuario>>();
             services.TryAddSingleton<ISystemClock, SystemClock>();
+
+            services.AddMediatR(typeof(Register.UsuarioRegisterCommand).Assembly);
+
+            services.AddAutoMapper(typeof(Register.UsuarioRegisterHundler));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
