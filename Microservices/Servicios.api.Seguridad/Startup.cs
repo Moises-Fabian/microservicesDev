@@ -53,6 +53,8 @@ namespace Servicios.api.Seguridad
 
             services.AddScoped<IJwtGenerator, JwtGenerator>();
 
+            services.AddScoped<IUsuarioSesion, UsuarioSesion>();
+
             services.AddControllers().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<Register>());
 
             services.AddControllers();
