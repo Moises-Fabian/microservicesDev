@@ -27,5 +27,11 @@ namespace Servicios.api.Seguridad.Controllers
             return await _mediator.Send(parametros);
         }
 
+        [HttpPost("login")]
+        public async Task<ActionResult<UsuarioDTO>> Login(Login.UsuarioLoginCommand parametros)
+        {
+            return await _mediator.Send(parametros);
+        }
+
     }
 }
