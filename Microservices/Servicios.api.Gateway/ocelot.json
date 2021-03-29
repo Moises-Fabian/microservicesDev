@@ -16,8 +16,5 @@
         "AllowedScopes": []
       }
     }
-  ],
-  "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:57096"
-  }
+  ]
 }
