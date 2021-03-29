@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\MicroserviceMoises\\Microservices\\Servicios.api.Gateway\\Servicios.api.Gateway.csproj": {}
+    "C:\\MicroserviceMoises\\Microservices\\servicios.api.Gateway\\servicios.api.Gateway.csproj": {}
   },
   "projects": {
-    "C:\\MicroserviceMoises\\Microservices\\Servicios.api.Gateway\\Servicios.api.Gateway.csproj": {
+    "C:\\MicroserviceMoises\\Microservices\\servicios.api.Gateway\\servicios.api.Gateway.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MicroserviceMoises\\Microservices\\Servicios.api.Gateway\\Servicios.api.Gateway.csproj",
-        "projectName": "Servicios.api.Gateway",
-        "projectPath": "C:\\MicroserviceMoises\\Microservices\\Servicios.api.Gateway\\Servicios.api.Gateway.csproj",
+        "projectUniqueName": "C:\\MicroserviceMoises\\Microservices\\servicios.api.Gateway\\servicios.api.Gateway.csproj",
+        "projectName": "servicios.api.Gateway",
+        "projectPath": "C:\\MicroserviceMoises\\Microservices\\servicios.api.Gateway\\servicios.api.Gateway.csproj",
         "packagesPath": "C:\\Users\\mlago\\.nuget\\packages\\",
-        "outputPath": "C:\\MicroserviceMoises\\Microservices\\Servicios.api.Gateway\\obj\\",
+        "outputPath": "C:\\MicroserviceMoises\\Microservices\\servicios.api.Gateway\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,9 +43,13 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.4, )"
+            },
             "Ocelot": {
               "target": "Package",
-              "version": "[17.0.0, )"
+              "version": "[16.0.1, )"
             }
           },
           "imports": [

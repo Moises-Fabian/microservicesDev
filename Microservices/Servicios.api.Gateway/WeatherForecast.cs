@@ -1,6 +1,6 @@
 using System;
 
-namespace Servicios.api.Gateway
+namespace servicios.api.Gateway
 {
     public class WeatherForecast
     {
