@@ -1,0 +1,4 @@
+<h1>Componente de angular</h1>
+<input *ngIf="visible" type="text" [(ngModel)]="usuarioNombre">
+<button *ngIf="visible" (click)="onAgregarUsuario()">Agregar</button>
+<div *ngFor="let src of usuarios">{{src}}</div>

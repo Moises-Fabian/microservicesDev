@@ -1,0 +1,23 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/LibreriaServicio/autorGenerico",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44318"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/LibreriaServicio/autorGenerico/autorLista",
+      "UpstreamHttpMethod": [ "POST", "GET", "UPDATE", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:57096"
+  }
+}

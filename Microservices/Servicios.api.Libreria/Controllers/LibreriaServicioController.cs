@@ -13,18 +13,14 @@ namespace Servicios.api.Libreria.Controllers
     [ApiController]
     public class LibreriaServicioController : ControllerBase
     {
-        /*Inyeccion*/
         private readonly IAutorRepository _autorRepository;
-        /*Inyeccion*/
         private readonly IMongoRepository<AutorEntity> _autorGeneroRepository;
-        /*Inyeccion*/
         public LibreriaServicioController(IAutorRepository autorRepository, IMongoRepository<AutorEntity> autorGenericoRepository)
         {
             _autorRepository = autorRepository;
             _autorGeneroRepository = autorGenericoRepository;
         }
 
-        /*Método para que el cliente pueda consumirlo*/
         [HttpGet("autorGenerico")]
         public async Task<ActionResult<IEnumerable<AutorEntity>>> GetAutorGenerico()
         {
