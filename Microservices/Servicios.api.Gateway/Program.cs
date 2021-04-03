@@ -25,6 +25,6 @@ namespace servicios.api.Gateway
                 .ConfigureAppConfiguration((hostingContext, config) =>
                 {
                     config.AddJsonFile($"ocelot.json");
-                });
+                }).ConfigureLogging(logging => logging.AddConsole());
     }
 }
