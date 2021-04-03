@@ -70,6 +70,14 @@ namespace Servicios.api.Seguridad
                 };
             });
 
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsRule", rule =>
+                {
+                    rule.AllowAnyHeader().AllowAnyMethod().WithOrigins("*");
+                });
+            });
+
             services.AddControllers().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<Register>());
 
             services.AddControllers();
@@ -90,6 +98,8 @@ namespace Servicios.api.Seguridad
             }
 
             app.UseRouting();
+
+            app.UseCors("CorsRule");
 
             app.UseAuthorization();
 
