@@ -3,13 +3,19 @@ import { Usuario } from './usuario.model';
 import { LoginData } from './login-data.model';
 import {Router} from '@angular/router';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SeguridadService {
+  baseUrl = environment.baseUrl;
+
   seguridadCambio = new Subject<boolean>();
   private usuario!: Usuario | null;
 
-  constructor(private router: Router){
+  constructor(private router: Router, private http: HttpClient){
 
   }
 
@@ -28,17 +34,10 @@ export class SeguridadService {
   }
 
   login(loginData: LoginData) {
-    this.usuario = {
-      email: loginData.email,
-      usuarioId: Math.round(Math.random() * 10000).toString(),
-      nombre: '',
-      apellidos: '',
-      username: '',
-      password: ''
-    };
-
-    this.seguridadCambio.next(true);
-    this.router.navigate(['/']);
+    this.http.post(this.baseUrl + 'usuario/login', loginData)
+    .subscribe( (Response) => {
+      console.log('login respuesta', Response);
+    });
   }
 
   salirSesion() {

@@ -47,7 +47,7 @@ import { HttpClientModule } from '@angular/common/http';
     FlexLayoutModule,
     HttpClientModule
   ],
-  providers: [LibrosServices, SeguridadService,{provide: MAT_DATE_LOCALE, useValue: 'es-ES'},],
+  providers: [LibrosServices,{provide: MAT_DATE_LOCALE, useValue: 'es-ES'},],
   bootstrap: [AppComponent],
   entryComponents: [BookNuevoComponent]
 })
