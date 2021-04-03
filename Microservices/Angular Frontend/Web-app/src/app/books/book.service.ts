@@ -20,7 +20,7 @@ export class BookService{
 
   constructor(private http: HttpClient){}
 
-  obtenerLibros(libroPorPagina: number, paginaActual: number, sort: string, sortDirection: string, filterValue: any){
+  obtenerLibros(libroPorPagina: number, paginaActual: number, sort: string, sortDirection: string, filterValue: any): void{
     const request = {
        pageSize: libroPorPagina,
        page: paginaActual,
@@ -36,18 +36,18 @@ export class BookService{
     });
   }
 
-  obtenerActualListener(){
+  obtenerActualListener(): any{
     return this.bookPaginationSubject.asObservable();
   }
 
-  guardarLibro(book: Books){
+  guardarLibro(book: Books): void{
     this.http.post(this.baseUrl + 'Libro', book)
       .subscribe( (response) => {
         this.bookSubjet.next();
       });
   }
 
-  guardarLibroListener(){
+  guardarLibroListener(): any{
     return this.bookSubjet.asObservable();
   }
 
