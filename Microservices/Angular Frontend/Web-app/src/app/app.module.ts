@@ -21,7 +21,8 @@ import { BookService } from './books/book.service';
 import { BookNuevoComponent } from './books/book-nuevo.component';
 import {MAT_DATE_LOCALE} from '@angular/material/core';
 import { AutoresComponent } from './autores/autores.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SeguridadInterceptor } from './seguridad/seguridad-interceptor';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { HttpClientModule } from '@angular/common/http';
     FlexLayoutModule,
     HttpClientModule
   ],
-  providers: [LibrosServices,{provide: MAT_DATE_LOCALE, useValue: 'es-ES'},],
+  providers: [[{provide: HTTP_INTERCEPTORS, useClass: SeguridadInterceptor, multi: true}] , LibrosServices,{provide: MAT_DATE_LOCALE, useValue: 'es-ES'},],
   bootstrap: [AppComponent],
   entryComponents: [BookNuevoComponent]
 })

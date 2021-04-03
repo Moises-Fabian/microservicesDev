@@ -17,7 +17,7 @@ export class AutoresService{
 
   constructor(private http: HttpClient){}
   obtenerAutores(){
-    this.http.get<Autor[]>(this.UrlBase + 'api/LibreriaAutor')
+    this.http.get<Autor[]>(this.UrlBase + 'Autor')
     .subscribe( (data) => {
       this.autoresLista = data;
       this.autoresSubject.next([...this.autoresLista]);

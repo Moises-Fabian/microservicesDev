@@ -5,4 +5,5 @@ export interface Usuario{
   email: string;
   usuarioId: string;
   password: string;
+  token: string;
 }

@@ -29,7 +29,7 @@ export class BookService{
        filterValue
     };
 
-    this.http.post<paginationBooks>(this.baseUrl + 'api/Libro/Pagination', request)
+    this.http.post<paginationBooks>(this.baseUrl + 'Libro/Pagination', request)
     .subscribe( (Response) =>{
       this.bookPagination = Response;
       this.bookPaginationSubject.next(this.bookPagination);
@@ -41,7 +41,7 @@ export class BookService{
   }
 
   guardarLibro(book: Books){
-    this.http.post(this.baseUrl + 'api/libro', book)
+    this.http.post(this.baseUrl + 'Libro', book)
       .subscribe( (response) => {
         this.bookSubjet.next();
       });
