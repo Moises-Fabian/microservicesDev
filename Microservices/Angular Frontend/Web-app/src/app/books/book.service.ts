@@ -11,7 +11,7 @@ import { Injectable } from '@angular/core';
 export class BookService{
   baseUrl = environment.baseUrl;
 
-  private booksLista: Books[] =[];
+  //private booksLista: Books[] =[];
 
   bookSubjet = new Subject();
 
@@ -42,7 +42,7 @@ export class BookService{
 
   guardarLibro(book: Books): void{
     this.http.post(this.baseUrl + 'Libro', book)
-      .subscribe( (response) => {
+      .subscribe( () => {
         this.bookSubjet.next();
       });
   }

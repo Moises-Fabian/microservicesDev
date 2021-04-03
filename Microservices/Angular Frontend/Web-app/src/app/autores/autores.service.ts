@@ -1,23 +1,25 @@
-import { Injectable } from "@angular/core";
-import { Autor } from "./autor.model";
+
+import { Injectable } from '@angular/core';
+import {Autor} from './autor.model';
 import { environment } from './../../environments/environment';
-import { HttpClient } from "@angular/common/http";
-import { Subject } from "rxjs";
+import {HttpClient} from '@angular/common/http';
+import {Subject} from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutoresService{
-
-  UrlBase = environment.baseUrl;
-
+  baseUrl = environment.baseUrl;
   private autoresLista: Autor[] = [];
 
   private autoresSubject = new Subject<Autor[]>();
 
   constructor(private http: HttpClient){}
+
+
   obtenerAutores(){
-    this.http.get<Autor[]>(this.UrlBase + 'Autor')
+    this.http.get<Autor[]>(this.baseUrl + 'Autor')
     .subscribe( (data) => {
       this.autoresLista = data;
       this.autoresSubject.next([...this.autoresLista]);
@@ -27,4 +29,5 @@ export class AutoresService{
   obtenerActualListener(){
     return this.autoresSubject.asObservable();
   }
+
 }

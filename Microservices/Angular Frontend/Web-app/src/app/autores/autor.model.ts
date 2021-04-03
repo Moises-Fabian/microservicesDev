@@ -4,3 +4,4 @@ export interface Autor{
   apellido: string;
   gradoAcademico: string;
 }
+

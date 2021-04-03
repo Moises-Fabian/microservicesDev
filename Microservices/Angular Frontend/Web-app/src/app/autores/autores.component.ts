@@ -19,13 +19,15 @@ export class AutoresComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.autoresService.obtenerAutores();
-    this.autorSubscription = this.autoresService.obtenerActualListener()
+    this.autorSubscription = this.autoresService
+      .obtenerActualListener()
       .subscribe((autores: Autor[]) => {
         this.dataSource.data = autores;
       });
   }
 
   ngOnDestroy(){
-    this.autorSubscription.unsubscribe();
+      this.autorSubscription.unsubscribe();
   }
+
 }
