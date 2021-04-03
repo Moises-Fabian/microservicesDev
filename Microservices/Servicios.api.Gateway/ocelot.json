@@ -10,7 +10,7 @@
         }
       ],
       "UpstreamPathTemplate": "/autorLista",
-      "UpstreamHttpMethod": [ "POST", "GET", "UPDATE", "DELETE" ],
+      "UpstreamHttpMethod": [ "POST", "GET", "UPDATE", "DELETE" ]
     }
   ],
   "GlobalConfiguration": {

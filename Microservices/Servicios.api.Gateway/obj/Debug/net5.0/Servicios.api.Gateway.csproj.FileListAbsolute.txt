@@ -38,3 +38,4 @@ C:\MicroserviceMoises\Microservices\servicios.api.Gateway\bin\Debug\net5.0\Micro
 C:\MicroserviceMoises\Microservices\servicios.api.Gateway\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\MicroserviceMoises\Microservices\servicios.api.Gateway\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\MicroserviceMoises\Microservices\servicios.api.Gateway\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\MicroserviceMoises\Microservices\servicios.api.Gateway\obj\Debug\net5.0\servicios.api.Gateway.csprojAssemblyReference.cache

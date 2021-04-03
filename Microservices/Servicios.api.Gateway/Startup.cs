@@ -47,7 +47,7 @@ namespace servicios.api.Gateway
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public async void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -67,7 +67,7 @@ namespace servicios.api.Gateway
 
             app.UseHttpsRedirection();
 
-            app.UseOcelot().Wait();
+            await app.UseOcelot();
         }
     }
 }
