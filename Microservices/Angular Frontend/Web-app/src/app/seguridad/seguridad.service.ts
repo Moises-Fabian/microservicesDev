@@ -34,7 +34,7 @@ export class SeguridadService {
       this.usuario = {
         email: Response.email,
         nombre: Response.nombre,
-        apellidos: Response.apellidos,
+        apellido: Response.apellido,
         token: Response.token,
         password: '',
         username: Response.username,
@@ -53,19 +53,37 @@ export class SeguridadService {
 
   }
 
-  registrarUsuario(usr: Usuario){
-    this.usuario = {
-      email: usr.email,
-      usuarioId: Math.round(Math.random() * 10000).toString(),
-      nombre: usr.nombre,
-      apellidos: usr.apellidos,
-      username: usr.username,
-      password: '',
-      token: usr.token
-    };
+  registrarUsuario(usr: Usuario): void {
+    this.http
+      .post<Usuario>(this.baseUrl + 'usuario/registrar', usr)
+      .subscribe((response) => {
+        this.token = response.token;
+        this.usuario = {
+          email: response.email,
+          nombre: response.nombre,
+          apellido: response.apellido,
+          token: response.token,
+          password: '',
+          username: response.username,
+          usuarioId: response.usuarioId,
+        };
+        this.seguridadCambio.next(true);
+        localStorage.setItem('token', response.token);
+        this.router.navigate(['/']);
+      });
 
-    this.seguridadCambio.next(true);
-    this.router.navigate(['/']);
+    // this.usuario = {
+    //   email: usr.email,
+    //   usuarioId: Math.round(Math.random() * 10000).toString(),
+    //   nombre: usr.nombre,
+    //   apellidos: usr.apellidos,
+    //   username: usr.username,
+    //   password: '',
+    //   token: ''
+    // };
+
+    // this.seguridadCambio.next(true);
+    // this.router.navigate(['/']);
   }
 
   login(loginData: LoginData): void {
@@ -77,7 +95,7 @@ export class SeguridadService {
       this.usuario = {
         email: Response.email,
         nombre: Response.nombre,
-        apellidos: Response.apellidos,
+        apellido: Response.apellido,
         token: Response.token,
         password: '',
         username: Response.username,
