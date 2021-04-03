@@ -17,6 +17,34 @@ export class SeguridadService {
   seguridadCambio = new Subject<boolean>();
   private usuario!: Usuario | null;
 
+  cargarUsuario(): void {
+    const tokenBrowser = localStorage.getItem('token');
+    if( !tokenBrowser){
+      return;
+    }
+
+    this.token = tokenBrowser;
+    this.seguridadCambio.next(true);
+
+    this.http.get<Usuario>(this.baseUrl + 'usuario')
+    .subscribe( (Response) => {
+      console.log('login respuesta', Response);
+
+      this.token = Response.token;
+      this.usuario = {
+        email: Response.email,
+        nombre: Response.nombre,
+        apellidos: Response.apellidos,
+        token: Response.token,
+        password: '',
+        username: Response.username,
+        usuarioId: Response.usuarioId
+      };
+      this.seguridadCambio.next(true);
+      localStorage.setItem('token', Response.token);
+    });
+  }
+
   obtenerToken(): string{
     return this.token;
   }
@@ -56,6 +84,7 @@ export class SeguridadService {
         usuarioId: Response.usuarioId
       };
       this.seguridadCambio.next(true);
+      localStorage.setItem('token', Response.token);
       this.router.navigate(['/']);
     });
   }
@@ -63,6 +92,7 @@ export class SeguridadService {
   salirSesion() {
     this.usuario = null;
     this.seguridadCambio.next(false);
+    localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
 
@@ -71,6 +101,6 @@ export class SeguridadService {
   }
 
   onSesion(){
-    return this.usuario != null;
+    return this.token != null;
   }
 }
