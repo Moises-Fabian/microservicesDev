@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: microservice-libreria-pod
+  labels:
+    app: microservice-libreria
+    type: microservice
+spec:
+  containers:
+    - name: microservice-libreria-app
+      image: moisesflg/serviciosapilibreria:latest
+      ports:
+        - containerPort: 80
+      env:
+        - name: MongoDb__ConnectionString
+          value: mongodb://moisesflg:$moisesLagos2025@mongo-service:27017

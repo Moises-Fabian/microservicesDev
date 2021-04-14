@@ -11,8 +11,6 @@ import { Injectable } from '@angular/core';
 export class BookService{
   baseUrl = environment.baseUrl;
 
-  //private booksLista: Books[] =[];
-
   bookSubjet = new Subject();
 
   bookPagination!: paginationBooks;

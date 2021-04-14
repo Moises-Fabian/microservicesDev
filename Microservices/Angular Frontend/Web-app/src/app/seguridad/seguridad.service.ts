@@ -71,19 +71,6 @@ export class SeguridadService {
         localStorage.setItem('token', response.token);
         this.router.navigate(['/']);
       });
-
-    // this.usuario = {
-    //   email: usr.email,
-    //   usuarioId: Math.round(Math.random() * 10000).toString(),
-    //   nombre: usr.nombre,
-    //   apellidos: usr.apellidos,
-    //   username: usr.username,
-    //   password: '',
-    //   token: ''
-    // };
-
-    // this.seguridadCambio.next(true);
-    // this.router.navigate(['/']);
   }
 
   login(loginData: LoginData): void {

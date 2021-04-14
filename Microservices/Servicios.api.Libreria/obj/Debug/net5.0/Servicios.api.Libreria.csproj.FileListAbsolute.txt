@@ -33,3 +33,4 @@ C:\MicroserviceMoises\Microservices\Servicios.api.Libreria\obj\Debug\net5.0\Serv
 C:\MicroserviceMoises\Microservices\Servicios.api.Libreria\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
 C:\MicroserviceMoises\Microservices\Servicios.api.Libreria\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
 C:\MicroserviceMoises\Microservices\Servicios.api.Libreria\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll
+C:\MicroserviceMoises\Microservices\Servicios.api.Libreria\obj\Debug\net5.0\Servicios.api.Libreria.csprojAssemblyReference.cache
